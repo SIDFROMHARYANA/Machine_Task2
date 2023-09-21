@@ -1,0 +1,129 @@
+/* ImageSlider.css */
+
+/* Container for the entire image slider */
+.image-slider-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Image Slider Styles */
+  .image-slider {
+    position: relative;
+    width: 100%; /* Ensure the slider takes the full width */
+    height: 100vh; /* Set the height to the viewport height */
+    max-height: max-content;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  /* Individual Image Item Styles */
+  .image-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+    transition: transform 0.3s ease-in-out;
+    opacity: 0.3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-item.parallax {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.5s ease-in-out;
+    opacity: 1;
+  }
+  
+  .image-item.active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+  }
+  
+  /* Navigation Arrow Styles */
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 50%;
+  }
+  
+  .prev-button:hover,
+  .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  /* Navigation Dot Styles (Optional) */
+  .navigation-dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .dot.active {
+    background-color: #007BFF;
+  }
+  
+  /* Media Queries for Responsiveness (Adjust as needed) */
+  @media (max-width: 768px) {
+    .image-slider-container {
+      margin-top: 20px;
+    }
+  
+    .image-slider {
+      max-width: 90%;
+      padding: 10px;
+    }
+  
+    .prev-button,
+    .next-button {
+      font-size: 20px;
+      padding: 8px 12px;
+    }
+  
+    .dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 6px;
+    }
+  }
+  
